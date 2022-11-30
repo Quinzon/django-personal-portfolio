@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+html {
+    background-image: url("wallpaper-2.jpg");
+}
+
+.nav {
+    background-color: white;
+    position: fixed;
+    width: 100%;
+    height: 80px;
+}
+
+.navbar {
+    margin: auto;
+    height: 80px;
+    display: flex;
+    max-width: 992px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-left {
+    display: flex;
+    margin-left: 20px;
+}
+
+.navbar-logo {
+
+}
+
+.navbar-logo img {
+    height: 80px;
+}
+
+.nickname{
+    display: flex;
+    padding: 26px;
+    font-size: 28px;
+    color: red;
+}
+
+.navbar-right {
+    display: flex;
+    justify-content: right;
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+.navbar-right div {
+    margin: 10px;
+}
+.navbar-right a {
+    text-decoration: none;
+    color: black;
+}
+
+.navbar-right a {
+    border: solid 1px red;
+    border-radius: 40px;
+    padding: 16px;
+    box-shadow: 0 3px 10px #a91111;
+    transition: all 0.7s;
+}
+
+.navbar-right a:hover {
+    cursor: pointer;
+    background-color: #a91111;
+    border-color: #a91111;
+    box-shadow: none;
+    border-radius: 0;
+    color: white;
+}
+

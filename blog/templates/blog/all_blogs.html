@@ -7,13 +7,16 @@
             <div>
 				<h1>Блог</h1>
 			</div>
+            <div>
+                <h2>Всего постов: {{ blog_count }}</h2>
+            </div>
 		</header>
 		<main>
             <div>
                 {% for blog in blogs %}
-                    <h2>{{ blog.title }}</h2>
-                    <p>{{ blog.release_date }}</p>
-                    <p>{{ blog.description }}</p>
+                    <a href="{% url 'blog:detail' blog.id %}"><h2>{{ blog.title }}</h2></a>
+                    <p>{{ blog.release_date|date:'M d Y G:i' }}</p>
+                    <p>{{ blog.description|safe|truncatechars:100 }}</p>
                 {% endfor %}
             </div>
 		</main>
