@@ -54,25 +54,86 @@ html {
 .navbar-right div {
     margin: 10px;
 }
+
 .navbar-right a {
     text-decoration: none;
     color: black;
 }
 
-.navbar-right a {
+.navbar-right button {
     border: solid 1px red;
     border-radius: 40px;
     padding: 16px;
+    font-size: 20px;
+    color: black;
     box-shadow: 0 3px 10px #a91111;
-    transition: all 0.7s;
+    transition: all 0.3s ease-in;
 }
 
-.navbar-right a:hover {
+.navbar-right button:hover {
     cursor: pointer;
     background-color: #a91111;
     border-color: #a91111;
     box-shadow: none;
     border-radius: 0;
     color: white;
+}
+
+.navbar-right button:active {
+    transform: scale(0.95);
+}
+
+main {
+    padding-top: 80px;
+}
+
+.portfolio {
+    max-width: 992px;
+    margin: auto;
+}
+
+.self  {
+    margin: 50px auto 50px;
+    text-align: center;
+    height: 600px;
+    width: 450px;
+    background-color: red;
+}
+
+.self img {
+    height: 100%;
+}
+
+.projects {
+    margin: 50px 20px 0;
+}
+
+.project {
+    height: 300px;
+    margin-bottom: 15px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.project-info {
+    padding: 0 7px;
+}
+
+.project img {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    height: 200px;
+    width: 100%;
+}
+
+.project h2 {
+    text-align: center;
+}
+
+.project p {
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
