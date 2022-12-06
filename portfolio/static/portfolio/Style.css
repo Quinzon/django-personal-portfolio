@@ -85,7 +85,7 @@ html {
     transform: scale(0.95);
 }
 
-main {
+.portfolio {
     padding-top: 80px;
 }
 
@@ -144,3 +144,58 @@ hr {
     overflow: hidden;
 }
 
+.page-blog {
+    color: #a91111;
+}
+
+.blog-header {
+    margin: 25px;
+}
+
+.blog {
+    max-width: 496px;
+    margin: auto;
+    background-color: black;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px #a91111;
+}
+
+.header-blog {
+    text-align: center;
+}
+
+.blogs-count {
+    text-align: center;
+    color: rgba(255,255,255,0.31);
+}
+
+.blog-post {
+    margin: 10px;
+}
+
+.post-link a{
+    text-decoration: none;
+    color: red;
+}
+
+.post-date {
+    color: rgba(169, 17, 17, 0.5);
+    margin: 5px 0;
+}
+
+.post-detail-title {
+    text-align: center;
+    margin: 50px auto 27px;
+}
+
+.post-detail-text {
+    max-width: 496px;
+    margin: auto;
+    background-color: black;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px #a91111;
+}

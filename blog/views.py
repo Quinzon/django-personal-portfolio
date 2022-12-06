@@ -4,7 +4,7 @@ from .models import Blog
 
 def all_blogs(request):
     blog_count = Blog.objects.count
-    blogs = Blog.objects.all()[:2]
+    blogs = Blog.objects.all()
     return render(request, 'blog/all_blogs.html', {'blogs': blogs,
                                                    'blog_count': blog_count})
 

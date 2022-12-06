@@ -1,23 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html class="page-blog">
 	<head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'portfolio/Style.css' %}">
+        <link rel="stylesheet" href="https://unpkg.com/flexboxgrid2@7.2.1/flexboxgrid2.min.css">
+        <link rel="icon" type="image/png" href="{% static "/portfolio/logo.png" %}">
+        <title>Blog</title>
 	</head>
 	<body>
 		<header>
-            <div>
-				<h1>Блог</h1>
-			</div>
-            <div>
-                <h2>Всего постов: {{ blog_count }}</h2>
+            <div class="blog-header">
+                <div class="header-blog">
+                    <h1>Блог</h1>
+                </div>
+                <div class="blogs-count">
+                    <h2>Всего постов: {{ blog_count }}</h2>
+                </div>
             </div>
 		</header>
 		<main>
-            <div>
-                {% for blog in blogs %}
-                    <a href="{% url 'blog:detail' blog.id %}"><h2>{{ blog.title }}</h2></a>
-                    <p>{{ blog.release_date|date:'M d Y G:i' }}</p>
-                    <p>{{ blog.description|safe|truncatechars:100 }}</p>
-                {% endfor %}
+            <div class="blog">
+                <div class="blog-posts">
+                    {% for blog in blogs %}
+                        <div class="blog-post">
+                            <div class="post-link">
+                                <a href="{% url 'blog:detail' blog.id %}"><h2>{{ blog.title }}</h2></a>
+                            </div>
+                            <div class="post-date">
+                                <p>{{ blog.release_date|date:'M d Y G:i' }}</p>
+                            </div>
+                            <div class="post-description">
+                                <p>{{ blog.description|safe|truncatechars:150 }}</p>
+                            </div>
+                        </div>
+                        <hr>
+                    {% endfor %}
+                </div>
             </div>
 		</main>
 	</body>

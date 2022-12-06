@@ -1,1 +1,22 @@
-{{ blog.title }}
+<!DOCTYPE html>
+<html class="page-blog">
+	<head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'portfolio/Style.css' %}">
+        <link rel="stylesheet" href="https://unpkg.com/flexboxgrid2@7.2.1/flexboxgrid2.min.css">
+        <link rel="icon" type="image/png" href="{% static "/portfolio/logo.png" %}">
+        <title>{{ blog.title }}</title>
+	</head>
+	<body>
+		<header>
+            <div class="post-detail-title">
+                <h1>{{ blog.title }}</h1>
+            </div>
+		</header>
+		<main>
+            <div class="post-detail-text">
+                {{ blog.description | linebreaks }}
+            </div>
+		</main>
+	</body>
+</html>
