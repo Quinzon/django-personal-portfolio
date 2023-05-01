@@ -2,39 +2,41 @@
 <html class="page-blog">
 	<head>
         {% load static %}
-        <link rel="stylesheet" href="{% static 'portfolio/Style.css' %}">
-        <link rel="stylesheet" href="https://unpkg.com/flexboxgrid2@7.2.1/flexboxgrid2.min.css">
-        <link rel="icon" type="image/png" href="{% static "/portfolio/logo.png" %}">
+        <link rel="stylesheet" href="{% static 'portfolio/css/main.css' %}">
+        <link rel="icon" type="image/png" href="{% static "/portfolio/img/logo.png" %}">
         <title>Blog</title>
 	</head>
 	<body>
 		<header>
-            <div class="blog-header">
-                <div class="header-blog">
-                    <h1>Блог</h1>
+
+		</header>
+		<main class="main-main">
+            <div class="header-blog">
+                <div class="header-blog-name">
+                    <h1>"Blog"</h1>
                 </div>
                 <div class="blogs-count">
-                    <h2>Всего постов: {{ blog_count }}</h2>
+                    <p>Всего постов: {{ blog_count }}</p>
                 </div>
             </div>
-		</header>
-		<main>
-            <div class="blog">
-                <div class="blog-posts">
-                    {% for blog in blogs %}
-                        <div class="blog-post">
-                            <div class="post-link">
-                                <a href="{% url 'blog:detail' blog.id %}"><h2>{{ blog.title }}</h2></a>
+
+            <div class="main-blog">
+                <div class="main-blog-content">
+                    <div class="main-blog-posts">
+                        {% for blog in blogs %}
+                            <div class="main-blog-post">
+                                <div class="main-blog-post-link">
+                                    <a href="{% url 'blog:detail' blog.id %}"><h2>{{ blog.title }}</h2></a>
+                                </div>
+                                <div class="main-blog-post-date">
+                                    <p>{{ blog.release_date|date:'M d Y G:i' }}</p>
+                                </div>
+                                <div class="main-blog-post-description">
+                                    {{ blog.description|safe|linebreaks }}
+                                </div>
                             </div>
-                            <div class="post-date">
-                                <p>{{ blog.release_date|date:'M d Y G:i' }}</p>
-                            </div>
-                            <div class="post-description">
-                                <p>{{ blog.description|safe|truncatechars:150 }}</p>
-                            </div>
-                        </div>
-                        <hr>
-                    {% endfor %}
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
 		</main>

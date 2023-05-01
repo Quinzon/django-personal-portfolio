@@ -2,69 +2,91 @@
 <html>
 	<head>
         {% load static %}
-        <link rel="stylesheet" href="{% static 'portfolio/Style.css' %}">
 		<link rel="stylesheet" href="https://unpkg.com/flexboxgrid2@7.2.1/flexboxgrid2.min.css">
-        <link rel="icon" type="image/png" href="{% static "/portfolio/logo.png" %}">
-        <title>Ramzes</title>
+        <link rel="icon" type="image/png" href="{% static "/portfolio/img/logo.png" %}">
+        <title>Quinzone portfolio</title>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="{% static 'portfolio/css/main.css' %}">
+
+        <script src="{% static "/portfolio/libs/gsap/gsap.min.js" %}" defer></script>
+        <script src="{% static "/portfolio/libs/gsap/ScrollTrigger.min.js" %}" defer></script>
+        <script src="{% static "/portfolio/libs/gsap/ScrollSmoother.min.js" %}" defer></script>
+
+        <script src="{% static "/portfolio/js/app.js" %}" defer></script>
+
 	</head>
 	<body>
-		<header>
-            <div class="nav">
-                <div class="row">
-                    <div class="col-xs-12 col-md-12 col-lg-12">
-                        <div class="navbar">
-                            <div class="navbar-left">
-                                <div class="navbar-logo">
-                                    <img src="{% static 'portfolio/logo.png' %}">
+        <div class="content">
+            <header class="main-header">
+                <div class="layers">
+                    <div class="layer__header">
+                        <div class="layers__caption">Welcome to portfolio</div>
+                        <div class="layers__title">Quinzon</div>
+                    </div>
+                    <div class="layer layers__base"></div>
+                    <div class="layer layers__middle"></div>
+                    <div class="layer layers__front"></div>
+                </div>
+            </header>
+
+            <main class="main-main">
+                <div class="portfolio">
+                    <div class="projects">
+                        {% for project in projects %}
+                            <div class="project">
+                                <div class="project-img">
+                                    <a {% if project.url %} href="{{ project.url }}" {% endif %}>
+                                        <img src="{{ project.image.url }}" alt="">
+                                    </a>
                                 </div>
-                                <div class="nickname">
-                                    <p>Ramzes</p>
+                                <div class="project-info">
+                                    <h2>{{ project.title }}</h2>
+                                    <p>{{ project.description|safe }}</p>
                                 </div>
                             </div>
-                            <div class="navbar-right">
-                                <div class="navbar-blog">
-                                    <a href="{% url 'blog:all_blogs' %}"><button>Blog</button></a>
-                                </div>
-                                <div class="">
-                                    <a><button>Resume</button></a>
-                                </div>
-                                <div class="">
-                                    <a><button>Contacts</button></a>
-                                </div>
-                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="footer-main">
+                    <div class="footer__item">
+                        <div class="footer-info__item">
+                            <a href="#">Top</a>
                         </div>
+                        <div class="footer-info__item">
+                            <a href="{% url 'blog:all_blogs' %}">Blog</a>
+                        </div>
+                        <div class="footer-info__item">
+                            <a href="#">Resume</a>
+                        </div>
+                        <div class="footer-info__item">
+                            <a id="contactsModalOn">Contacts</a>
+                        </div>
+                    </div>
+                    <div class="copy">
+                        <div class=".footer-info__item">© 2023 Roman Popov</div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div id="contactsModal" class="contacts-modal">
+            <div class="contacts-modal-content">
+                <div class="contacts-modal-content-info-area">
+                    <div class="contacts-modal-content-info">
+                        <img src="{% static "/portfolio/img/telegram.png" %}" alt="">
+                        <span>@nasdaql</span>
+                    </div>
+                    <div class="contacts-modal-content-info">
+                        <img src="{% static "/portfolio/img/emai.png" %}" alt="">
+                        <span>popov_roman7@mail.ru</span>
                     </div>
                 </div>
             </div>
-		</header>
-		<main>
-            <div class="portfolio">
-                <div class="row">
-                    <div class="col-xs-12 col-md-12 col-lg-12">
-                        <div class="self">
-                            <img src="{% static 'portfolio/self-2.png' %}" alt="">
-                        </div>
-                        <hr>
-                        <div class="projects">
-                            <div class="row">
-                                {% for project in projects %}
-                                    <div class="col-xs-12 col-md-6 col-lg-4">
-                                        <div class="project">
-                                            <a {% if project.url %} href="{{ project.url }}" {% endif %}>
-                                                <img src="{{ project.image.url }}" alt="">
-                                            </a>
-                                            <div class="project-info">
-                                                <h2>{{ project.title }}</h2>
-                                                <p>{{ project.description|safe }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-		</main>
+        </div>
+
 	</body>
 </html>
