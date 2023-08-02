@@ -2,7 +2,6 @@
 <html>
 	<head>
         {% load static %}
-		<link rel="stylesheet" href="https://unpkg.com/flexboxgrid2@7.2.1/flexboxgrid2.min.css">
         <link rel="icon" type="image/png" href="{% static "/portfolio/img/logo.png" %}">
         <title>Quinzone portfolio</title>
 
@@ -39,13 +38,13 @@
                         {% for project in projects %}
                             <div class="project">
                                 <div class="project-img">
-                                    <a {% if project.url %} href="{{ project.url }}" {% endif %}>
-                                        <img src="{{ project.image.url }}" alt="">
+                                    <a {% if project.url %} href="{{ project.url }}" target="_blank" {% endif %}>
+                                        <img src="{{ project.image.url }}" alt="" >
                                     </a>
                                 </div>
                                 <div class="project-info">
                                     <h2>{{ project.title }}</h2>
-                                    <p>{{ project.description|safe }}</p>
+                                    {{ project.description|safe }}
                                 </div>
                             </div>
                         {% endfor %}
@@ -56,11 +55,11 @@
                         <div class="footer-info__item">
                             <a href="#">Top</a>
                         </div>
+{#                        <div class="footer-info__item">#}
+{#                            <a href="{% url 'blog:all_blogs' %}">Blog</a>#}
+{#                        </div>#}
                         <div class="footer-info__item">
-                            <a href="{% url 'blog:all_blogs' %}">Blog</a>
-                        </div>
-                        <div class="footer-info__item">
-                            <a href="#">Resume</a>
+                            <a href="{{ resume.file.url }}" download>Resume</a>
                         </div>
                         <div class="footer-info__item">
                             <a id="contactsModalOn">Contacts</a>

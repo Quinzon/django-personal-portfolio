@@ -6,7 +6,6 @@
 :root {
 	--index: calc(1vw + 1vh);
 	--index-x: calc(1vw);
-	--index-y: calc(1vh);
 	--text: #e7e7e0;
 	--transition: transform .75s cubic-bezier(.075, .5, 0, 1);
 }
@@ -106,80 +105,62 @@ body {
 	letter-spacing: calc(var(--index) / 3.5);
 	margin-top: calc(var(--index) * -2.25);
 }
-.main-article {
-	--main-article-transform: translate3d(0, calc(var(--scrollTop) / -7.5), 0);
-	min-height: 100vh;
-	background-size: cover;
-	background-position: center;
-	color: var(--text);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-	text-align: center;
-	/* Update: */
-	top: -1px;
-	z-index: 10;
-}
-.main-article__header {
-	text-transform: uppercase;
-	font-size: calc(var(--index) * 1.8);
-	letter-spacing: calc(var(--index) / 7.5);
-	transform: var(--main-article-transform);
-	transition: var(--transition);
-	will-change: transform;
-}
-.main-article__paragraph {
-	max-width: calc(var(--index) * 30);
-	font-size: calc(var(--index) * .9);
-	margin-top: calc(var(--index) / 1.25);
-	transform: var(--main-article-transform);
-	transition: var(--transition);
-	will-change: transform;
-}
 .content {
 	will-change: transform;
 }
 
 
-
 .main-main {
 	background-image: url("../img/dungeon.png");
-	padding: calc(var(--index) * 3) calc(var(--index-x) * 16) calc(var(--index) * 2);
+	padding: calc(var(--index) * 4) calc(var(--index-x) * 16) calc(var(--index) * 2);
 }
 .projects {
 }
 .project {
 	margin: 0 0 calc(var(--index-x) * 8);
+	min-height: calc(var(--index) * 17);
+	background: rgba(0, 0, 0, 0.8);
+	border-radius: 10px;
 	width: 100%;
-    display: flex;
-    justify-content: space-between;
+}
+.project-img {
+	float: left;
+	padding-right: 10px;
 }
 .project-img img {
-	max-width: calc(var(--index) * 10);
+	max-height: calc(var(--index) * 17);
 	border-radius: 10px;
 }
 .project-info {
-	display: flex;
 	color: var(--text);
-    flex-direction: column;
-    justify-content: space-between;
     padding: 0 calc(var(--index) / 1.75) calc(var(--index) / 1.75);
     width: 100%;
+	font-size: calc(var(--index) * .89);
 }
 .project-info h2 {
-	font-size: calc(var(--index) / .75);
+	text-transform: uppercase;
+	font-size: calc(var(--index) * 2);
 	letter-spacing: calc(var(--index) / 4.5);
 }
-.project-info p {
-	font-size: calc(var(--index) * .9);
-	letter-spacing: calc(var(--index) * .15);
+.project-info h3 {
+	font-size: calc(var(--index) * 1.25);
+}
+.project-info p{
+	font-size: calc(var(--index) * 1.1);
+}
+.project-info a {
+	color: var(--text);
+}
+.project-info a:hover {
+	color: #a49a9a;
+	text-shadow:  0 0 20px rgb(170, 17, 17);
 }
 
 .footer-main {
     display: flex;
     justify-content: space-between;
     align-items: center;
+	margin-top: calc(var(--index) * -1);
     padding: 0 0;
 	font-size: calc(var(--index) * .65);
 	letter-spacing: calc(var(--index) * .08);
@@ -277,7 +258,7 @@ body {
 	margin-top: calc(var(--index) * 1.5);
 	border: 1px solid rgba(0, 0, 0, 0);
 	border-radius: 15px;
-	background: rgba(0, 0, 0, 0.5);
+	background: rgba(0, 0, 0, 0.8);
 	font-size: calc(var(--index) / 1.5);
 	letter-spacing: calc(var(--index) / 15);
 	padding: 0 calc(var(--index) / 1.75) calc(var(--index) / 1.75);
@@ -313,6 +294,8 @@ body {
 	min-height: calc(100vh - calc(var(--index) * 5) - calc((var(--index) * 1.5) * -1));
 }
 .main-blog-detail {
+	border-radius: 15px;
+	background: rgba(0, 0, 0, 0.8);
 	margin-top: calc((var(--index) * 1.5) * -1);
 	height:auto;
 	width:100%;
@@ -327,7 +310,7 @@ body {
 .main-blog-post-detail-date {
 	margin-top: 10px;
 	position: absolute;
-	bottom: -20px;
+	bottom: 0;
 	right: 0;
 }
 .main-blog-post-detail-text {
